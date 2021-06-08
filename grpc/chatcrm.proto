@@ -5,9 +5,18 @@ package chatcrm;
 service Chat {
   rpc join(Message) returns (stream Message);
   rpc send(Message) returns (Message);
+  rpc channels(NoParam) returns (Channels);
+  rpc logout(Message) returns (Message);
 }
 
+message NoParam {}
+
 message Message {
-  string user = 1;
-  string text = 2;
+  string to = 1;
+  string user = 2;
+  string text = 3;
+}
+
+message Channels {
+  repeated string channels = 1;
 }

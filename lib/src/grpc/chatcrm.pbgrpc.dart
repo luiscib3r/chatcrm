@@ -22,6 +22,14 @@ class ChatClient extends $grpc.Client {
       '/chatcrm.Chat/send',
       ($0.Message value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Message.fromBuffer(value));
+  static final _$channels = $grpc.ClientMethod<$0.NoParam, $0.Channels>(
+      '/chatcrm.Chat/channels',
+      ($0.NoParam value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Channels.fromBuffer(value));
+  static final _$logout = $grpc.ClientMethod<$0.Message, $0.Message>(
+      '/chatcrm.Chat/logout',
+      ($0.Message value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.Message.fromBuffer(value));
 
   ChatClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -37,6 +45,16 @@ class ChatClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.Message> send($0.Message request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$send, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Channels> channels($0.NoParam request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$channels, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.Message> logout($0.Message request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$logout, request, options: options);
   }
 }
 
@@ -58,6 +76,20 @@ abstract class ChatServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.Message.fromBuffer(value),
         ($0.Message value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.NoParam, $0.Channels>(
+        'channels',
+        channels_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.NoParam.fromBuffer(value),
+        ($0.Channels value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Message, $0.Message>(
+        'logout',
+        logout_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Message.fromBuffer(value),
+        ($0.Message value) => value.writeToBuffer()));
   }
 
   $async.Stream<$0.Message> join_Pre(
@@ -70,6 +102,19 @@ abstract class ChatServiceBase extends $grpc.Service {
     return send(call, await request);
   }
 
+  $async.Future<$0.Channels> channels_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.NoParam> request) async {
+    return channels(call, await request);
+  }
+
+  $async.Future<$0.Message> logout_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Message> request) async {
+    return logout(call, await request);
+  }
+
   $async.Stream<$0.Message> join($grpc.ServiceCall call, $0.Message request);
   $async.Future<$0.Message> send($grpc.ServiceCall call, $0.Message request);
+  $async.Future<$0.Channels> channels(
+      $grpc.ServiceCall call, $0.NoParam request);
+  $async.Future<$0.Message> logout($grpc.ServiceCall call, $0.Message request);
 }

@@ -8,14 +8,32 @@
 import 'dart:core' as $core;
 import 'dart:convert' as $convert;
 import 'dart:typed_data' as $typed_data;
+@$core.Deprecated('Use noParamDescriptor instead')
+const NoParam$json = const {
+  '1': 'NoParam',
+};
+
+/// Descriptor for `NoParam`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List noParamDescriptor = $convert.base64Decode('CgdOb1BhcmFt');
 @$core.Deprecated('Use messageDescriptor instead')
 const Message$json = const {
   '1': 'Message',
   '2': const [
-    const {'1': 'user', '3': 1, '4': 1, '5': 9, '10': 'user'},
-    const {'1': 'text', '3': 2, '4': 1, '5': 9, '10': 'text'},
+    const {'1': 'to', '3': 1, '4': 1, '5': 9, '10': 'to'},
+    const {'1': 'user', '3': 2, '4': 1, '5': 9, '10': 'user'},
+    const {'1': 'text', '3': 3, '4': 1, '5': 9, '10': 'text'},
   ],
 };
 
 /// Descriptor for `Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List messageDescriptor = $convert.base64Decode('CgdNZXNzYWdlEhIKBHVzZXIYASABKAlSBHVzZXISEgoEdGV4dBgCIAEoCVIEdGV4dA==');
+final $typed_data.Uint8List messageDescriptor = $convert.base64Decode('CgdNZXNzYWdlEg4KAnRvGAEgASgJUgJ0bxISCgR1c2VyGAIgASgJUgR1c2VyEhIKBHRleHQYAyABKAlSBHRleHQ=');
+@$core.Deprecated('Use channelsDescriptor instead')
+const Channels$json = const {
+  '1': 'Channels',
+  '2': const [
+    const {'1': 'channels', '3': 1, '4': 3, '5': 9, '10': 'channels'},
+  ],
+};
+
+/// Descriptor for `Channels`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List channelsDescriptor = $convert.base64Decode('CghDaGFubmVscxIaCghjaGFubmVscxgBIAMoCVIIY2hhbm5lbHM=');
